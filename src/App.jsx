@@ -19,7 +19,16 @@ import {
   CreditCard,
   Quote,
   Volume2,
-  VolumeX
+  VolumeX,
+  Code2,
+  Database,
+  Globe,
+  Layers,
+  Smartphone,
+  Terminal,
+  Monitor,
+  Coffee,
+  MessageCircle
 } from 'lucide-react';
 
 const MusicPlayer = () => {
@@ -167,6 +176,7 @@ const App = () => {
     { name: 'Showtime', href: '#home' },
     { name: 'The Phantom', href: '#phantom' },
     { name: 'Treasures', href: '#projects' },
+    { name: 'Contracts', href: '#services' },
     { name: 'Tricks', href: '#skills' },
   ];
 
@@ -523,20 +533,20 @@ const App = () => {
                 solution: "Otomatisasi validasi dokumen & sinkronisasi database real-time."
               },
               { 
-                title: "Elegant Wedding Web", 
-                desc: "Platform undangan pernikahan digital interaktif dengan fitur RSVP, galeri foto, dan musik latar yang elegan.", 
-                tags: ["JavaScript", "Tailwind", "Framer Motion"], 
-                img: "/assets/weding.png",
-                challenge: "Interaksi undangan statis yang kurang berkesan bagi tamu.",
-                solution: "Animasi imersif dengan RSVP instan & pengalaman audio yang mulus."
+                title: "Luxurious Hotel Booking", 
+                desc: "Platform pemesanan hotel mewah dengan sistem manajemen ketersediaan kamar dan reservasi instan yang elegan.", 
+                tags: ["React", "Node.js", "Express"], 
+                img: "/assets/hotelbooking.png",
+                challenge: "Manajemen reservasi yang kompleks dan risiko overbooking.",
+                solution: "Sinkronisasi database real-time untuk akurasi slot kamar 100%."
               },
               { 
-                title: "Magic SmartHome", 
-                desc: "Dashboard kendali rumah pintar berbasis IoT untuk monitoring sensor suhu dan kontrol perangkat secara real-time.", 
-                tags: ["IoT", "Node.js", "ESP32"], 
-                img: "/assets/SmartHome.jpg",
-                challenge: "Latency tinggi dalam pemantauan perangkat jarak jauh.",
-                solution: "Jalur komunikasi real-time terenkripsi untuk kendali instan."
+                title: "Advanced HealthCare", 
+                desc: "Sistem informasi kesehatan digital untuk manajemen rekam medis, janji temu dokter, dan konsultasi online.", 
+                tags: ["Laravel", "MySQL", "Tailwind"], 
+                img: "/assets/HealthCare.png",
+                challenge: "Akses data pasien yang lambat dan birokrasi pendaftaran yang rumit.",
+                solution: "Digitalisasi rekam medis terenkripsi untuk akses data instan dan aman."
               },
               { 
                 title: "Phantom Cinema Portal", 
@@ -615,35 +625,113 @@ const App = () => {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.2 }
+                transition: { staggerChildren: 0.1 }
               }
             }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            className="flex flex-wrap justify-center gap-4"
           >
             {[
-              { icon: <Library label="Frontend" />, label: "Illusion (UI/UX)" },
-              { icon: <Cpu label="Backend" />, label: "The Engine" },
-              { icon: <Pocket label="Full-stack" />, label: "Versatility" },
-              { icon: <Gem label="Performance" />, label: "The Polish" }
+              { icon: <Code2 size={24} />, label: "HTML" },
+              { icon: <Layers size={24} />, label: "CSS" },
+              { icon: <Terminal size={24} />, label: "JS" },
+              { icon: <Globe size={24} />, label: "PHP" },
+              { icon: <Zap size={24} />, label: "Laravel" },
+              { icon: <Sparkles size={24} />, label: "React" },
+              { icon: <Database size={24} />, label: "MySQL" },
+              { icon: <Database size={24} />, label: "PostgreSQL" },
+              { icon: <Layers size={24} />, label: "Bootstrap" },
+              { icon: <Zap size={24} />, label: "Tailwind" },
+              { icon: <Coffee size={24} />, label: "Java" }
             ].map((s, i) => (
               <motion.div 
                 key={i}
                 variants={{
-                  hidden: { opacity: 0, scale: 0, rotate: -45 },
-                  show: { opacity: 1, scale: 1, rotate: 0 }
+                  hidden: { opacity: 0, scale: 0, y: 20 },
+                  show: { opacity: 1, scale: 1, y: 0 }
                 }}
                 whileHover={{ 
                   scale: 1.1, 
                   backgroundColor: "rgba(37, 99, 235, 0.1)",
                   boxShadow: "0 0 40px rgba(37, 99, 235, 0.2)"
                 }}
-                className="p-12 border kaito-border flex flex-col items-center gap-6 text-center group transition-colors"
+                className="w-[140px] p-6 border kaito-border flex flex-col items-center gap-4 text-center group transition-colors rounded-[2px]"
               >
                 <div className="text-white opacity-40 group-hover:opacity-100 group-hover:text-blue-500 transition-all">{s.icon}</div>
-                <span className="text-xs font-black uppercase tracking-widest">{s.label}</span>
+                <span className="text-[10px] font-black uppercase tracking-widest">{s.label}</span>
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-32 bg-white/[0.01]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="text-right mb-24"
+          >
+            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Service Request</span>
+            <h2 className="text-7xl font-serif italic font-bold">Planned <span className="kaito-gradient-text">Contracts</span></h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Landing Page Heist",
+                desc: "Halaman pendarat berkonversi tinggi dengan desain yang memikat perhatian dalam hitungan detik.",
+                icon: <Monitor size={32} />,
+                features: ["Responsive Design", "Fast Loading", "SEO Optimized"]
+              },
+              {
+                title: "Web App Infiltration",
+                desc: "Aplikasi web kustom yang dibangun dengan presisi untuk kebutuhan bisnis yang kompleks.",
+                icon: <Cpu size={32} />,
+                features: ["React/Laravel", "Scalable Architecture", "Secure Auth"]
+              },
+              {
+                title: "E-Commerce Raid",
+                desc: "Toko online modern yang menawarkan pengalaman berbelanja semulus keajaiban sulap.",
+                icon: <Pocket size={32} />,
+                features: ["Payment Gateway", "Inventory System", "User Dashboard"]
+              }
+            ].map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.2, duration: 1 }}
+                className="p-10 kaito-border bg-slate-900/50 hover:bg-blue-600/5 transition-all group relative overflow-hidden"
+              >
+                <div className="text-blue-500 mb-8 group-hover:scale-110 transition-transform duration-500">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-serif italic font-bold mb-4">{service.title}</h3>
+                <p className="text-slate-400 font-light text-sm leading-relaxed mb-8">{service.desc}</p>
+                <ul className="space-y-3 mb-10">
+                  {service.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a 
+                  href="https://wa.me/6285861930794" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="mt-4 flex items-center justify-center gap-2 border border-blue-500/30 bg-blue-500/5 hover:bg-blue-600 text-blue-400 hover:text-white text-[10px] font-black uppercase tracking-widest py-3 rounded-[2px] transition-all group/wa"
+                >
+                  <MessageCircle size={14} className="group-hover/wa:rotate-12 transition-transform" /> Send Call Card
+                </a>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 -rotate-45 translate-x-16 -translate-y-16 group-hover:translate-x-12 group-hover:-translate-y-12 transition-transform duration-700"></div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -664,21 +752,21 @@ const App = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { 
-                name: "Inspector Zenigata", 
-                role: "Lead Detective", 
-                text: "Kecepatan eksekusinya hampir mustahil. Dia membangun sistem yang sangat kompleks seolah-olah hanya membalikkan telapak tangan.",
+                name: "H. Ahmad Sulaeman, S.IP.", 
+                role: "Kepala Desa Sukanagara", 
+                text: "Pelayanan digital yang dibangun Muhammad Jaja Maulana sangat membantu efisiensi birokrasi di desa kami. Benar-benar sebuah terobosan.",
                 type: "Official Report"
               },
               { 
-                name: "A. Nakamori", 
-                role: "Security Specialist", 
-                text: "UI/UX yang dia buat sangat halus. Setiap elemen terasa seperti jebakan yang dirancang dengan indah oleh seorang ahli.",
+                name: "Drs. M. Taufik Hidayat, M.Si.", 
+                role: "Kepala Sekolah SMA ERHA", 
+                text: "Dedikasi dan keahliannya dalam membangun sistem PPDB sekolah kami sangat luar biasa. Hasilnya sangat rapi dan profesional.",
                 type: "Incident Log"
               },
               { 
-                name: "Sherry", 
-                role: "Data Analyst", 
-                text: "Arsitektur kodenya bersih dan efisien. Benar-benar sulit dipercaya bagaimana dia mengintegrasikan performa tinggi ke dalam desain yang mewah.",
+                name: "Adam Rifa", 
+                role: "Mahasiswa Universitas Galuh (UNIGAL)", 
+                text: "Kreativitasnya dalam coding selalu menginspirasi. Dia selalu punya cara 'ajaib' untuk menyelesaikan masalah teknis yang sulit.",
                 type: "Analysis Result"
               }
             ].map((witness, idx) => (
