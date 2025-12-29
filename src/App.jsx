@@ -167,6 +167,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isIdentityFlipped, setIsIdentityFlipped] = useState(false);
+  const [isHeroFlipped, setIsHeroFlipped] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -552,7 +553,9 @@ const App = () => {
             {/* Playing Card Flip Effect */}
             <motion.div 
               className="relative z-10 max-w-xs group cursor-pointer preserve-3d"
+              animate={{ rotateY: isHeroFlipped ? 180 : 0 }}
               whileHover={{ rotateY: 180 }}
+              onClick={() => setIsHeroFlipped(!isHeroFlipped)}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="absolute -inset-8 bg-blue-500/10 rounded-full blur-[100px] group-hover:bg-blue-500/30 transition-all duration-1000"></div>
@@ -562,6 +565,11 @@ const App = () => {
                  <img src="/assets/4.png" alt="Kaito Kid Front" loading="lazy" className="w-full grayscale brightness-110 group-hover:grayscale-0 transition-all duration-700" />
                  <div className="absolute top-4 left-4 text-white/50 text-2xl font-serif">A</div>
                  <div className="absolute bottom-4 right-4 text-white/50 text-2xl font-serif rotate-180">A</div>
+                 
+                 {/* Mobile Hint */}
+                 <div className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest text-white/60">
+                    Tap to Flip
+                 </div>
               </div>
 
               {/* Back Face (3.png) */}
@@ -703,6 +711,11 @@ const App = () => {
                       <div className="absolute inset-0 bg-blue-900/10"></div>
                       <div className="absolute top-4 left-4 text-white/50 text-4xl font-serif">?</div>
                       <div className="absolute bottom-4 right-4 text-white/50 text-4xl font-serif rotate-180">?</div>
+
+                      {/* Mobile Hint */}
+                      <div className="md:hidden absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white/80 border border-white/20">
+                          Tap to Reveal
+                      </div>
                    </div>
                    <div className="absolute top-0 right-0 bg-white text-black text-[10px] font-black px-4 py-2 uppercase tracking-widest -translate-y-1/2 translate-x-1/2 shadow-xl z-20">
                       The Phantom
