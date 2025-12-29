@@ -166,6 +166,7 @@ const App = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isIdentityFlipped, setIsIdentityFlipped] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -686,7 +687,9 @@ const App = () => {
               {/* Card Container with 3D Flip */}
               <motion.div 
                 className="relative w-full aspect-[3/4] max-w-sm mx-auto preserve-3d cursor-pointer"
+                animate={{ rotateY: isIdentityFlipped ? 180 : 0 }}
                 whileHover={{ rotateY: 180 }}
+                onClick={() => setIsIdentityFlipped(!isIdentityFlipped)}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Front Face - Kaito Kid (4.png) */}
