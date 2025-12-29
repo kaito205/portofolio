@@ -830,30 +830,30 @@ const App = () => {
             <div className="space-y-16">
               {[
                 {
-                  year: "2022",
-                  title: "The Awakening",
-                  desc: "Mulai perjalanan di dunia pemrograman dengan mempelajari dasar-dasar HTML, CSS, dan algoritma. Membangun struktur pemikiran logis.",
+                  year: "2011 — 2017",
+                  title: "The First Act",
+                  desc: "Memulai langkah awal pendidikan di SDN 1 Sukanagara. Membentuk karakter dasar dan rasa ingin tahu yang besar terhadap dunia.",
                   align: "right",
                   icon: <Zap size={20} />
                 },
                 {
-                  year: "2023",
-                  title: "The Infiltration",
-                  desc: "Mendalami ekosistem JavaScript dan mulai menjelajahi framework Modern seperti React. Fokus pada pembuatan antarmuka yang responsif.",
+                  year: "2017 — 2020",
+                  title: "Foundation of Mystery",
+                  desc: "Melanjutkan pendidikan di MTs Riyadlul Hidayah Al-Munawarah. Di sinilah kedisiplinan dan nilai-nilai moral mulai diasah dengan tajam.",
                   align: "left",
                   icon: <Monitor size={20} />
                 },
                 {
-                  year: "2024",
-                  title: "Mastering the Tools",
-                  desc: "Memperluas keahlian ke ranah Full-Stack dengan Laravel dan integrasi Database. Menyelesaikan beberapa proyek sistem informasi nyata.",
+                  year: "2020 — 2023",
+                  title: "The Phantom's Ascent",
+                  desc: "Menempuh jenjang menengah atas di SMA ERHA Jatinagara. Mulai mengenal dunia digital dan mengeksplorasi potensi diri lebih dalam.",
                   align: "right",
                   icon: <Database size={20} />
                 },
                 {
-                  year: "2025",
-                  title: "The Showtime",
-                  desc: "Mengasah kemampuan dalam optimasi performa dan UI/UX tingkat lanjut. Siap untuk memberikan solusi digital yang transformatif.",
+                  year: "2023 — 2025",
+                  title: "The Masterpiece",
+                  desc: "Kini bertransformasi menjadi pengembang profesional di STMIK MARDIRA INDONESIA (Semester 5). Menguasai seni Full-Stack Development untuk menciptakan keajaiban digital.",
                   align: "left",
                   icon: <Sparkles size={20} />
                 }
