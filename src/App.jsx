@@ -918,6 +918,14 @@ const App = () => {
           >
             {[
               { 
+                title: "Smart IoT Watering", 
+                desc: "Sistem penyiraman otomatis berbasis IoT dengan ESP32 dan kendali penuh via dashboard web Laravel.", 
+                tags: ["Arduino ESP", "Laravel", "IoT"], 
+                img: "https://images.unsplash.com/photo-1585336261022-69c6e29669a7?q=80&w=1000&auto=format&fit=crop",
+                challenge: "Penyiraman manual yang tidak efisien dan kurangnya data kelembapan.",
+                solution: "Implementasi sensor kelembapan tanah dengan ESP32 & sinkronisasi data cloud Laravel."
+              },
+              { 
                 title: "PPDB Management System", 
                 desc: "Sistem Penerimaan Peserta Didik Baru (PPDB) terintegrasi dengan manajemen data pendaftar dan validasi dokumen.", 
                 tags: ["Laravel", "React", "MySQL"], 

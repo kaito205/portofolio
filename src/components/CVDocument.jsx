@@ -103,6 +103,15 @@ const CVDocument = () => {
             <div className="space-y-6">
               <div>
                 <div className="flex justify-between items-start mb-1 gap-2">
+                  <h4 className="font-bold text-slate-800 uppercase text-sm md:text-base">Smart IoT Plant Watering</h4>
+                  <span className="text-[8px] md:text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 font-bold rounded flex-shrink-0">ARDUINO ESP + LARAVEL</span>
+                </div>
+                <p className="text-[10px] md:text-xs text-slate-600 leading-relaxed">
+                  Sistem penyiraman tanaman otomatis berbasis IoT menggunakan ESP32/ESP8266 yang terhubung dengan dashboard Laravel untuk monitoring kelembapan tanah secara real-time.
+                </p>
+              </div>
+              <div>
+                <div className="flex justify-between items-start mb-1 gap-2">
                   <h4 className="font-bold text-slate-800 uppercase text-sm md:text-base">PPDB Management System</h4>
                   <span className="text-[8px] md:text-[10px] bg-blue-100 text-blue-700 px-2 py-0.5 font-bold rounded flex-shrink-0">LARAVEL + REACT</span>
                 </div>
