@@ -1161,7 +1161,7 @@ const App = () => {
               },
               { 
                 name: "Adam Rifa", 
-                role: "Mahasiswa STMIK MARDIRA INDONESIA", 
+                role: "Mahasiswa Universitas Galuh Ciamis", 
                 text: "Kreativitasnya dalam coding selalu menginspirasi. Dia selalu punya cara 'ajaib' untuk menyelesaikan masalah teknis yang sulit.",
                 type: "Analysis Result"
               }
