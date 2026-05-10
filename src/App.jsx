@@ -1097,31 +1097,34 @@ const App = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="text-right mb-24"
+            className="text-right mb-24 flex flex-col items-end"
           >
             <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Available Services</span>
-            <h2 className="text-5xl md:text-7xl font-serif italic font-bold">What I <span className="kaito-gradient-text">Offer</span></h2>
+            <h2 className="text-5xl md:text-7xl font-serif italic font-bold mb-6">What I <span className="kaito-gradient-text">Offer</span></h2>
+            <p className="text-slate-500 text-sm md:text-base font-light max-w-2xl leading-relaxed">
+               Sebagai seorang Full-Stack Developer, saya menyediakan layanan end-to-end mulai dari desain antarmuka hingga arsitektur database. Baik Anda membutuhkan website profil perusahaan, aplikasi bisnis, maupun bantuan penyelesaian *project* pemrograman (Joki/Freelance), saya siap mengubah masalah Anda menjadi baris kode yang elegan dan fungsional.
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Landing Page Development",
-                desc: "Halaman pendarat berkonversi tinggi dengan desain yang modern dan profesional.",
+                title: "Landing Page & Company Profile",
+                desc: "Website responsif dan profesional yang dirancang khusus untuk meningkatkan kredibilitas brand Anda. Dilengkapi dengan optimasi SEO, performa loading kilat, dan animasi memukau untuk memikat calon klien Anda sejak detik pertama.",
                 icon: <Monitor size={32} />,
-                features: ["Responsive Design", "Fast Loading", "SEO Optimized"]
+                features: ["Responsive UI/UX", "Fast Loading", "SEO Optimized"]
               },
               {
-                title: "Web App Development",
-                desc: "Aplikasi web kustom yang dibangun dengan presisi untuk kebutuhan bisnis yang kompleks.",
+                title: "Custom Web Applications",
+                desc: "Sistem informasi, portal manajemen (Admin Dashboard), hingga aplikasi bisnis yang kompleks. Dibangun menggunakan teknologi modern (React, Laravel, Node.js) dengan jaminan keamanan data, stabilitas, dan kemudahan pengelolaan.",
                 icon: <Cpu size={32} />,
-                features: ["React/Laravel", "Scalable Architecture", "Secure Auth"]
+                features: ["React/Laravel/Node", "Scalable Architecture", "Secure Auth"]
               },
               {
-                title: "E-Commerce Solutions",
-                desc: "Toko online modern yang menawarkan pengalaman berbelanja semulus mungkin.",
+                title: "Joki Tugas & E-Commerce",
+                desc: "Solusi terpercaya untuk pembuatan project Tugas Akhir/Skripsi Informatika, maupun pembuatan toko online lengkap dengan integrasi keranjang belanja otomatis, payment gateway, dan manajemen inventaris.",
                 icon: <Pocket size={32} />,
-                features: ["Payment Gateway", "Inventory System", "User Dashboard"]
+                features: ["Payment Gateway", "Inventory System", "Student Projects"]
               }
             ].map((service, idx) => (
               <motion.div
@@ -1147,12 +1150,12 @@ const App = () => {
                   ))}
                 </ul>
                 <a 
-                  href="https://wa.me/6285861930794" 
+                  href={`https://wa.me/6285861930794?text=${encodeURIComponent(`Halo Jaja Maulana, saya tertarik dengan layanan *${service.title}* Anda. Bisa kita diskusi lebih lanjut?`)}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="mt-4 flex items-center justify-center gap-2 border border-blue-500/30 bg-blue-500/5 hover:bg-blue-600 text-blue-400 hover:text-white text-[10px] font-black uppercase tracking-widest py-3 rounded-[2px] transition-all group/wa"
                 >
-                  <MessageCircle size={14} className="group-hover/wa:rotate-12 transition-transform" /> Send Message
+                  <MessageCircle size={14} className="group-hover/wa:rotate-12 transition-transform" /> Pesan Layanan Ini
                 </a>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 -rotate-45 translate-x-16 -translate-y-16 group-hover:translate-x-12 group-hover:-translate-y-12 transition-transform duration-700"></div>
               </motion.div>
