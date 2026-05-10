@@ -1254,18 +1254,30 @@ const App = () => {
                   ))}
                 </div>
               </div>
-              <form className="space-y-6">
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                
+                const waText = `Halo Jaja Maulana, perkenalkan saya *${name}* (${email}).\n\n${message}`;
+                const waUrl = `https://wa.me/6285861930794?text=${encodeURIComponent(waText)}`;
+                
+                // Menggunakan location.href agar tidak diblokir oleh Pop-up Blocker browser
+                window.location.href = waUrl;
+              }} className="space-y-6">
                 <div className="relative border-b border-white/10 group focus-within:border-blue-500 transition-colors">
-                   <input type="text" placeholder="Name" className="w-full bg-transparent py-4 focus:outline-none placeholder:text-slate-600 text-white font-serif italic" />
+                   <input type="text" name="name" required placeholder="Name" className="w-full bg-transparent py-4 focus:outline-none placeholder:text-slate-600 text-white font-serif italic" />
                 </div>
                 <div className="relative border-b border-white/10 group focus-within:border-blue-500 transition-colors">
-                   <input type="email" placeholder="Signal" className="w-full bg-transparent py-4 focus:outline-none placeholder:text-slate-600 text-white font-serif italic" />
+                   <input type="email" name="email" required placeholder="Email Address" className="w-full bg-transparent py-4 focus:outline-none placeholder:text-slate-600 text-white font-serif italic" />
                 </div>
                 <div className="relative border-b border-white/10 group focus-within:border-blue-500 transition-colors">
-                   <textarea placeholder="Message" rows="4" className="w-full bg-transparent py-4 focus:outline-none placeholder:text-slate-600 text-white font-serif italic"></textarea>
+                   <textarea name="message" required placeholder="Message" rows="4" className="w-full bg-transparent py-4 focus:outline-none placeholder:text-slate-600 text-white font-serif italic"></textarea>
                 </div>
-                <button className="flex items-center gap-4 bg-white text-black px-12 py-6 font-black uppercase tracking-widest text-[10px] hover:bg-blue-600 hover:text-white transition-all group">
-                  Send Message <Send size={14} className="group-hover:translate-x-1 transition-transform" />
+                <button type="submit" className="flex items-center gap-4 bg-white text-black px-12 py-6 font-black uppercase tracking-widest text-[10px] hover:bg-blue-600 hover:text-white transition-all group">
+                  Send via WhatsApp <Send size={14} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </form>
             </div>
