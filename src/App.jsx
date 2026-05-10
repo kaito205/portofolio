@@ -181,6 +181,7 @@ const App = () => {
   const [isHeroFlipped, setIsHeroFlipped] = useState(false);
   const [showCV, setShowCV] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [selectedCert, setSelectedCert] = useState(null);
 
   const handleDownloadPDF = async () => {
     const element = document.getElementById('cv-content');
@@ -820,79 +821,77 @@ const App = () => {
               {
                 title: "Belajar Dasar Pemrograman Web",
                 issuer: "Dicoding",
-                file: "/assets/sertifikat/sertifikat_course_123_3398153_250724195622.pdf"
+                file: "/assets/sertifikat/sertifikat_course_123_3398153_250724195622.png"
               },
               {
                 title: "Belajar Membuat Front-End Web untuk Pemula",
                 issuer: "Dicoding",
-                file: "/assets/sertifikat/sertifikat_course_251_3398153_260824122855.pdf"
+                file: "/assets/sertifikat/sertifikat_course_251_3398153_260824122855.png"
               },
               {
                 title: "Belajar Fundamental Front-End Web Development",
                 issuer: "Dicoding",
-                file: "/assets/sertifikat/sertifikat_course_256_3398153_081024203254.pdf"
+                file: "/assets/sertifikat/sertifikat_course_256_3398153_081024203254.png"
               },
               {
                 title: "Belajar Fundamental Aplikasi Web dengan React",
                 issuer: "Dicoding",
-                file: "/assets/sertifikat/sertifikat_course_315_3398153_270924172326.pdf"
+                file: "/assets/sertifikat/sertifikat_course_315_3398153_270924172326.png"
               },
               {
                 title: "Menjadi React Web Developer Expert",
                 issuer: "Dicoding",
-                file: "/assets/sertifikat/sertifikat_course_653_3398153_011024172900.pdf"
+                file: "/assets/sertifikat/sertifikat_course_653_3398153_011024172900.png"
               },
               {
                 title: "Beyond the Basics: Full-Stack Developer 2024",
                 issuer: "IDCamp x Dicoding",
-                file: "/assets/sertifikat/idcamp-x-dicoding-live-1-beyond-the-basics-elevate-your-career-as-a-full-stack-developer-in-2024-certificate.pdf"
+                file: "/assets/sertifikat/idcamp-x-dicoding-live-1-beyond-the-basics-elevate-your-career-as-a-full-stack-developer-in-2024-certificate.png"
               },
               {
                 title: "Building Performance Web Applications",
                 issuer: "IDCamp x Dicoding",
-                file: "/assets/sertifikat/idcamp-x-dicoding-live-building-performance-web-applications-certificate.pdf"
+                file: "/assets/sertifikat/idcamp-x-dicoding-live-building-performance-web-applications-certificate.png"
               },
               {
                 title: "Machine Learning in Google Cloud: Tensorflow",
                 issuer: "DevCoach",
-                file: "/assets/sertifikat/devcoach-161-machine-learning-in-google-cloud-pengenalan-tensorflow-dan-ekosistemnya-certificate.pdf"
+                file: "/assets/sertifikat/devcoach-161-machine-learning-in-google-cloud-pengenalan-tensorflow-dan-ekosistemnya-certificate.png"
               },
               {
                 title: "Data Science: Mengolah Data Insightful",
                 issuer: "DevCoach",
-                file: "/assets/sertifikat/devcoach-167-data-science-aku-bisa-coders-mengolah-data-amburadul-jadi-lebih-insightful-certificate.pdf"
+                file: "/assets/sertifikat/devcoach-167-data-science-aku-bisa-coders-mengolah-data-amburadul-jadi-lebih-insightful-certificate.png"
               },
               {
                 title: "DQLab Certification 1",
                 issuer: "DQLab",
-                file: "/assets/sertifikat/certificate-DQLABAI001VVKIHB.pdf"
+                file: "/assets/sertifikat/certificate-DQLABAI001VVKIHB.png"
               },
               {
                 title: "DQLab Certification 2",
                 issuer: "DQLab",
-                file: "/assets/sertifikat/certificate-DQLABAI003RWWPLS.pdf"
+                file: "/assets/sertifikat/certificate-DQLABAI003RWWPLS.png"
               },
               {
                 title: "Intro to Python for Data Science",
                 issuer: "DQLab",
-                file: "/assets/sertifikat/certificate-DQLABINTP1LIMMST.pdf"
+                file: "/assets/sertifikat/certificate-DQLABINTP1LIMMST.png"
               },
               {
                 title: "10th BEMSS Certificate of Attendance",
                 issuer: "BEMSS",
-                file: "/assets/sertifikat/Certificate of Attendance-10th BEMSS-Muhammad Jaja Maulana_2_2.pdf"
+                file: "/assets/sertifikat/Certificate of Attendance-10th BEMSS-Muhammad Jaja Maulana_2_2.png"
               }
             ].map((cert, idx) => (
-              <motion.a 
-                href={cert.file}
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.div 
+                onClick={() => setSelectedCert(cert.file)}
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
-                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] p-6 kaito-border bg-slate-900/50 hover:bg-blue-600/10 transition-colors group flex flex-col justify-between"
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] p-6 kaito-border bg-slate-900/50 hover:bg-blue-600/10 transition-colors group flex flex-col justify-between cursor-pointer"
               >
                 <div>
                   <div className="text-blue-500 mb-4 group-hover:scale-110 transition-transform"><FileDown size={24} /></div>
@@ -902,7 +901,7 @@ const App = () => {
                 <div className="mt-6 flex items-center gap-2 text-xs font-bold text-white group-hover:text-blue-400 transition-colors uppercase tracking-[0.2em]">
                   View Certificate <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -1389,6 +1388,38 @@ const App = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedCert(null)}
+            className="fixed inset-0 z-[3000] flex items-center justify-center p-4 md:p-12 bg-black/90 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl w-full max-h-full flex items-center justify-center"
+            >
+              <button 
+                onClick={() => setSelectedCert(null)}
+                className="absolute -top-12 right-0 md:-right-12 text-white hover:text-blue-500 transition-colors bg-white/10 p-2 rounded-full"
+              >
+                <X size={24} />
+              </button>
+              <img 
+                src={selectedCert} 
+                alt="Certificate Preview" 
+                className="max-w-full max-h-[85vh] object-contain rounded-[4px] shadow-[0_0_50px_rgba(37,99,235,0.2)] border border-white/10"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
         </motion.div>
       )}
     </AnimatePresence>
