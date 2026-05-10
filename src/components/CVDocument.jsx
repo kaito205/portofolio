@@ -17,7 +17,7 @@ const CVDocument = () => {
         </div>
         <div className="flex-shrink-0">
           <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 border-2 border-blue-100 p-0.5 md:p-1">
-             <img src="/assets/avatar.png" alt="Profile" className="w-full h-full object-cover" />
+             <img src="/assets/profile.png" alt="Profile" className="w-full h-full object-cover" />
           </div>
         </div>
       </header>
@@ -134,7 +134,7 @@ const CVDocument = () => {
           <section>
             <h3 className="text-xs md:text-sm font-black uppercase tracking-widest text-slate-900 border-b border-slate-200 pb-2 mb-4">Work Philosophy</h3>
             <p className="text-xs md:text-sm italic leading-relaxed text-slate-500">
-              "Mastering the Art of Invisible Code. Membangun arsitektur yang mulus, efisien, dan memiliki kekuatan yang misterius di balik layar demi pengalaman digital yang terasa seperti keajaiban."
+              "Mastering the Art of Clean Code. Membangun arsitektur yang mulus, efisien, dan memiliki struktur yang solid di balik layar demi pengalaman digital yang intuitif dan profesional."
             </p>
           </section>
         </div>

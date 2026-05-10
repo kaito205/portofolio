@@ -15,8 +15,8 @@ html {
   --bg-dark: #020617; /* Deep Navy Night */
   --bg-card: rgba(255, 255, 255, 0.02);
   --bg-glass: rgba(2, 6, 23, 0.8);
-  --accent: #ffffff; /* Kaito's White */
-  --accent-blue: #2563eb; /* Detective Blue */
+  --accent: #ffffff; /* Primary White */
+  --accent-blue: #2563eb; /* Primary Blue */
   --gold: #fbbf24;
   --text-main: #f8fafc;
   --text-dim: #94a3b8;
@@ -30,7 +30,7 @@ body {
   font-family: var(--font-outfit);
 }
 
-/* Custom Kaito Styles */
+/* Custom Theme Styles */
 .kaito-gradient-text {
   background: linear-gradient(135deg, #ffffff 0%, #94a3b8 50%, #2563eb 100%);
   -webkit-background-clip: text;

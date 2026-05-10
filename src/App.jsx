@@ -32,7 +32,11 @@ import {
   Download,
   X,
   Printer,
-  FileDown
+  FileDown,
+  Server,
+  Box,
+  Layout,
+  Container
 } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -142,7 +146,7 @@ const Preloader = ({ finishLoading }) => {
                 transition={{ delay: 0.5, duration: 0.8, ease: "circOut" }}
                 className="text-white font-black uppercase tracking-[0.6em] sm:tracking-[1em] text-[8px] sm:text-xs mb-4 ml-[0.6em] sm:ml-[1em]"
             >
-                Preparing the Heist
+                Initializing System
             </motion.h2>
         </div>
 
@@ -161,7 +165,7 @@ const Preloader = ({ finishLoading }) => {
             transition={{ delay: 2.5, duration: 1.5, repeat: Infinity }}
             className="mt-6 sm:mt-8 font-serif italic text-xl sm:text-2xl text-blue-400"
         >
-            "It's Showtime!"
+            "Welcome to the Portfolio"
         </motion.div>
       </motion.div>
     </motion.div>
@@ -232,13 +236,13 @@ const App = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Showtime', href: '#home' },
-    { name: 'Phantom', href: '#phantom' },
-    { name: 'Identity', href: '#identity' },
-    { name: 'Journey', href: '#roadmap' },
-    { name: 'Treasures', href: '#projects' },
-    { name: 'Contracts', href: '#services' },
-    { name: 'Tricks', href: '#skills' },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#phantom' },
+    { name: 'Profile', href: '#identity' },
+    { name: 'Certifications', href: '#roadmap' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Services', href: '#services' },
+    { name: 'Skills', href: '#skills' },
   ];
 
   const socialLinks = [
@@ -259,7 +263,7 @@ const App = () => {
       delay: i * 2,
       initialRotate: Math.random() * 360,
       targetRotate: [Math.random() * 360, Math.random() * 720],
-      symbol: i % 3 === 0 ? "A" : i % 3 === 1 ? "K" : "Q"
+      symbol: i % 3 === 0 ? "</>" : i % 3 === 1 ? "{}" : "[]"
     }));
   }, []);
 
@@ -288,7 +292,7 @@ const App = () => {
           transition={{ duration: 1 }}
           className="bg-[#020617] text-[#f8fafc] font-['Outfit'] min-h-screen relative selection:bg-blue-500/30 overflow-x-hidden"
         >
-          <MusicPlayer />
+          {/* Music Player Removed */}
           {/* Animated Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="stars-container"></div>
@@ -530,7 +534,7 @@ const App = () => {
               className="flex items-center gap-3 mb-6"
             >
                <span className="h-[1px] bg-blue-500"></span>
-               <span className="text-blue-500 font-black uppercase tracking-[0.3em] text-[10px] whitespace-nowrap">The Phantom Developer</span>
+               <span className="text-blue-500 font-black uppercase tracking-[0.3em] text-[10px] whitespace-nowrap">Full-Stack Developer</span>
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 50 }}
@@ -538,8 +542,8 @@ const App = () => {
               transition={{ delay: 0.4, duration: 1.2 }}
               className="text-5xl sm:text-7xl md:text-9xl font-bold leading-[0.9] mb-8 tracking-tighter italic font-serif"
             >
-              It's <br />
-              <span className="kaito-gradient-text">Showtime!</span>
+              Building Digital <br />
+              <span className="kaito-gradient-text">Experiences</span>
             </motion.h1>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -547,7 +551,7 @@ const App = () => {
               transition={{ delay: 0.7, duration: 1.2 }}
               className="text-2xl font-light text-slate-400 mb-10 max-w-md border-l-2 border-white/10 pl-6 leading-relaxed"
             >
-              Muhammad Jaja Maulana: Mengorkestrasi pengalaman web performa tinggi dengan sedikit sentuhan <span className="text-white font-medium underline decoration-blue-500/50 decoration-2 underline-offset-4">magic</span>.
+              Muhammad Jaja Maulana: Mengorkestrasi pengalaman web performa tinggi dengan fokus pada <span className="text-white font-medium underline decoration-blue-500/50 decoration-2 underline-offset-4">inovasi dan presisi</span>.
             </motion.h2>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -561,7 +565,7 @@ const App = () => {
                 href="#projects" 
                 className="group flex items-center justify-center gap-3 bg-white text-black px-6 md:px-10 py-4 md:py-5 rounded-[2px] font-black uppercase tracking-widest text-[10px] md:text-xs transition-colors hover:bg-blue-600 hover:text-white w-full sm:w-auto"
               >
-                Behold My Work
+                View Portfolio
                   <Sparkles size={16} />
               </motion.a>
               <motion.a 
@@ -570,7 +574,7 @@ const App = () => {
                 href="#contact" 
                 className="group flex items-center justify-center gap-3 border border-white/20 px-6 md:px-10 py-4 md:py-5 rounded-[2px] text-[10px] md:text-xs font-black uppercase tracking-widest transition-all w-full sm:w-auto"
               >
-               The Heist<ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+               Contact Me<ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </motion.a>
             </motion.div>
 
@@ -596,8 +600,8 @@ const App = () => {
             animate={{ 
               opacity: 1, 
               scale: 1, 
-              rotate: 12, 
-              rotateX: 15,
+              rotate: 0, 
+              rotateX: 0,
               y: [0, -15, 0],
               filter: "blur(0px)" 
             }}
@@ -609,34 +613,42 @@ const App = () => {
             }}
             className="hidden lg:flex justify-center relative perspective-2000"
           >
-            {/* Playing Card Flip Effect */}
+            {/* Elegant Image Showcase */}
             <motion.div 
-              className="relative z-10 max-w-xs group cursor-pointer preserve-3d"
-              animate={{ rotateY: isHeroFlipped ? 180 : 0 }}
-              whileHover={{ rotateY: 180 }}
-              onClick={() => setIsHeroFlipped(!isHeroFlipped)}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-10 max-w-sm group"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <div className="absolute -inset-8 bg-blue-500/10 rounded-full blur-[100px] group-hover:bg-blue-500/30 transition-all duration-1000"></div>
+              {/* Outer Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
               
-              {/* Front Face (4.png) */}
-              <div className="backface-hidden relative border kaito-border p-3 bg-slate-900 shadow-2xl rounded-[8px]">
-                 <img src="/assets/4.png" alt="Kaito Kid Front" loading="lazy" className="w-full grayscale brightness-110 group-hover:grayscale-0 transition-all duration-700" />
-                 <div className="absolute top-4 left-4 text-white/50 text-2xl font-serif">A</div>
-                 <div className="absolute bottom-4 right-4 text-white/50 text-2xl font-serif rotate-180">A</div>
+              {/* Image Container */}
+              <div className="relative rounded-2xl bg-slate-900 border border-white/10 p-2 overflow-hidden shadow-2xl">
+                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10 pointer-events-none rounded-xl"></div>
+                 <img 
+                    src="/assets/profile.png" 
+                    alt="Muhammad Jaja Maulana" 
+                    loading="lazy" 
+                    className="w-full aspect-[4/5] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" 
+                 />
                  
-                 {/* Mobile Hint */}
-                 <div className="md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest text-white/60">
-                    Tap to Flip
-                 </div>
+                 {/* Floating Badge */}
+                 <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.5, duration: 0.8 }}
+                    className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-2 rounded-full shadow-lg"
+                 >
+                    <span className="text-[10px] font-black uppercase tracking-widest text-white whitespace-nowrap flex items-center gap-2">
+                       <div className="w-2 h-2 rounded-full bg-green-400 animate-[pulse_2s_infinite]"></div>
+                       Available for Hire
+                    </span>
+                 </motion.div>
               </div>
-
-              {/* Back Face (3.png) */}
-              <div className="backface-hidden rotate-y-180 absolute inset-0 border kaito-border p-3 bg-slate-900 shadow-2xl rounded-[8px]">
-                 <img src="/assets/3.png" alt="Kaito Kid Back" loading="lazy" className="w-full grayscale brightness-110 group-hover:grayscale-0 transition-all duration-700" />
-                 <div className="absolute top-4 left-4 text-blue-500/50 text-2xl font-serif">K</div>
-                 <div className="absolute bottom-4 right-4 text-blue-500/50 text-2xl font-serif rotate-180">K</div>
-              </div>
+              
+              {/* Abstract decorative shapes */}
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl"></div>
             </motion.div>
           </motion.div>
         </div>
@@ -654,7 +666,7 @@ const App = () => {
         </motion.div>
       </section>
 
-      {/* About Section - The Phantom */}
+      {/* About Section - Developer */}
       <section id="phantom" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-center">
           <div className="order-2 md:order-1 grid grid-cols-2 gap-4">
@@ -685,10 +697,10 @@ const App = () => {
             transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
             className="order-1 md:order-2"
           >
-            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Biography — Tentang Saya</span>
-            <h2 className="text-4xl md:text-6xl font-serif italic font-bold mb-10 leading-tight">Mastering the Art of <span className="kaito-gradient-text">Invisible Code</span>.</h2>
+            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Professional Summary</span>
+            <h2 className="text-4xl md:text-6xl font-serif italic font-bold mb-10 leading-tight">Mastering the Art of <span className="kaito-gradient-text">Clean Code</span>.</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8 font-light">
-              Layaknya seorang pencuri bayangan yang tidak meninggalkan jejak, saya membangun arsitektur yang mulus, efisien, dan memiliki kekuatan yang misterius. Fokus saya adalah menciptakan pengalaman digital yang terasa seperti keajaiban bagi pengguna, namun tetap kokoh dan profesional di balik layar.
+              Sebagai seorang pengembang yang berdedikasi, saya membangun arsitektur yang mulus, efisien, dan memiliki struktur yang solid. Fokus saya adalah menciptakan pengalaman digital yang intuitif bagi pengguna, dan tetap kokoh serta profesional di balik layar.
             </p>
             <p className="text-slate-400 text-lg leading-relaxed font-light">
               Saya berspesialisasi dalam seni React, pengembangan Full-Stack, dan kerajinan halus untuk kesempurnaan UI/UX.
@@ -710,14 +722,14 @@ const App = () => {
             >
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
               <div className="relative z-10 p-8 sm:p-12 kaito-border bg-slate-900/40 backdrop-blur-md">
-                <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Decoded Dossier</span>
-                <h2 className="text-4xl md:text-5xl font-serif italic font-bold mb-8 leading-tight">Behind the <span className="kaito-gradient-text">Identity</span>.</h2>
+                <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Professional Dossier</span>
+                <h2 className="text-4xl md:text-5xl font-serif italic font-bold mb-8 leading-tight">Professional <span className="kaito-gradient-text">Profile</span>.</h2>
                 <div className="space-y-6 text-slate-400 text-lg leading-relaxed font-light">
                   <p>
-                    Perjalanan saya di dunia teknologi dimulai dengan rasa penasaran yang mendalam tentang bagaimana keajaiban digital diciptakan. Seperti seorang pesulap yang mempelajari rahasia di balik trik, saya mendedikasikan waktu saya untuk memahami arsitektur kode dan estetika desain.
+                    Perjalanan saya di dunia teknologi dimulai dengan rasa penasaran yang mendalam tentang bagaimana solusi digital diciptakan. Seperti seorang arsitek yang merancang struktur, saya mendedikasikan waktu saya untuk memahami arsitektur kode dan estetika desain.
                   </p>
                   <p>
-                    Saya percaya bahwa setiap baris kode harus memiliki tujuan, dan setiap piksel harus memberikan dampak emosional. Fokus saya bukan hanya membangun fungsionalitas, tapi menciptakan pengalaman yang tak terlupakan bagi setiap pengguna.
+                    Saya percaya bahwa setiap baris kode harus memiliki tujuan, dan setiap antarmuka harus memberikan pengalaman yang optimal. Fokus saya bukan hanya membangun fungsionalitas, tapi memastikan keandalan untuk setiap pengguna.
                   </p>
                 </div>
                 
@@ -751,65 +763,45 @@ const App = () => {
               transition={{ duration: 1.5, ease: "easeOut" }}
               className="relative lg:block group perspective-2000"
             >
-              {/* Card Container with 3D Flip */}
+              {/* Profile Card */}
               <motion.div 
-                className="relative w-full aspect-[3/4] max-w-sm mx-auto preserve-3d cursor-pointer"
-                animate={{ rotateY: isIdentityFlipped ? 180 : 0 }}
-                whileHover={{ rotateY: 180 }}
-                onClick={() => setIsIdentityFlipped(!isIdentityFlipped)}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="relative w-full aspect-[3/4] max-w-sm mx-auto"
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.5 }}
               >
-                {/* Front Face - Kaito Kid (kaito_matching.png) */}
-                <div className="backface-hidden absolute inset-0 border kaito-border p-2 bg-slate-900/80 shadow-2xl">
-                   <div className="w-full h-full bg-[#111] overflow-hidden relative">
-                      <img 
-                        src="/assets/kaito.png" 
-                        alt="Kaito Kid Persona" 
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-blue-900/10"></div>
-                      <div className="absolute top-4 left-4 text-white/50 text-4xl font-serif">?</div>
-                      <div className="absolute bottom-4 right-4 text-white/50 text-4xl font-serif rotate-180">?</div>
+                 {/* Premium Glass Frame */}
+                 <div className="absolute inset-0 border border-white/10 bg-slate-900/50 backdrop-blur-sm rounded-2xl shadow-[0_0_50px_rgba(37,99,235,0.15)] overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617] z-10 pointer-events-none"></div>
+                    
+                    <img 
+                      src="/assets/profile.png" 
+                      alt="Professional Persona" 
+                      className="w-full h-full object-cover object-top opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700"
+                      onError={(e) => {
+                          e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop";
+                      }}
+                    />
+                    
+                    {/* Corner accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-500/50 rounded-tl-2xl z-20 m-4 pointer-events-none"></div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-500/50 rounded-br-2xl z-20 m-4 pointer-events-none"></div>
+                    
+                    {/* Floating Info */}
+                    <div className="absolute bottom-8 left-8 right-8 z-20 pointer-events-none">
+                       <h3 className="text-2xl font-serif italic font-bold text-white mb-1">M. Jaja Maulana</h3>
+                       <p className="text-blue-400 text-xs font-black uppercase tracking-widest">Full-Stack Developer</p>
+                    </div>
+                 </div>
 
-                      {/* Mobile Hint */}
-                      <div className="md:hidden absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white/80 border border-white/20">
-                          Tap to Reveal
-                      </div>
-                   </div>
-                   <div className="absolute top-0 right-0 bg-white text-black text-[10px] font-black px-4 py-2 uppercase tracking-widest -translate-y-1/3 translate-x-1/3 shadow-xl z-20">
-                      The Phantom
-                   </div>
-                </div>
-
-                {/* Back Face - User Avatar (avatar.png) */}
-                <div className="backface-hidden rotate-y-180 absolute inset-0 border kaito-border p-2 bg-blue-600/10 shadow-2xl">
-                   <div className="w-full h-full bg-[#111] overflow-hidden relative border border-blue-500/30">
-                      <img 
-                        src="/assets/avatar.png" 
-                        alt="Muhammad Jaja Maulana" 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                        onError={(e) => {
-                            e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop";
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent"></div>
-                      <div className="absolute top-4 left-4 text-blue-500/50 text-4xl font-serif">A</div>
-                      <div className="absolute bottom-4 right-4 text-blue-500/50 text-4xl font-serif rotate-180">A</div>
-                   </div>
-                   <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-black px-4 py-2 uppercase tracking-widest -translate-y-1/3 translate-x-1/3 shadow-xl z-20">
-                      Verified User
-                   </div>
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute -inset-6 border border-blue-500/5 -z-10 rounded-full animate-pulse group-hover:border-blue-500/20 transition-colors"></div>
+                 {/* Decorative Pulse */}
+                 <div className="absolute -inset-4 border border-blue-500/20 -z-10 rounded-3xl animate-pulse pointer-events-none"></div>
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Learning Journey Section - The Grand Roadmap */}
+      {/* Certifications Section */}
       <section id="roadmap" className="py-32 relative bg-white/[0.01]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
@@ -819,69 +811,99 @@ const App = () => {
             transition={{ duration: 1.2 }}
             className="text-center mb-24"
           >
-            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">The Heist Preparation</span>
-            <h2 className="text-5xl md:text-7xl font-serif italic font-bold">The Grand <span className="kaito-gradient-text">Journey</span></h2>
+            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Educational Background & Achievements</span>
+            <h2 className="text-5xl md:text-7xl font-serif italic font-bold">My <span className="kaito-gradient-text">Certifications</span></h2>
           </motion.div>
 
-          <div className="relative">
-            {/* Center Line */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent hidden md:block"></div>
-            
-            <div className="space-y-16">
-              {[
-                {
-                  year: "2011 — 2017",
-                  title: "The First Act",
-                  desc: "Memulai langkah awal pendidikan di SDN 1 Sukanagara. Membentuk karakter dasar dan rasa ingin tahu yang besar terhadap dunia.",
-                  align: "right",
-                  icon: <Zap size={20} />
-                },
-                {
-                  year: "2017 — 2020",
-                  title: "Foundation of Mystery",
-                  desc: "Melanjutkan pendidikan di MTs Riyadlul Hidayah Al-Munawarah. Di sinilah kedisiplinan dan nilai-nilai moral mulai diasah dengan tajam.",
-                  align: "left",
-                  icon: <Monitor size={20} />
-                },
-                {
-                  year: "2020 — 2023",
-                  title: "The Phantom's Ascent",
-                  desc: "Menempuh jenjang menengah atas di SMA ERHA Jatinagara. Mulai mengenal dunia digital dan mengeksplorasi potensi diri lebih dalam.",
-                  align: "right",
-                  icon: <Database size={20} />
-                },
-                {
-                  year: "2023 — 2025",
-                  title: "The Masterpiece",
-                  desc: "Kini bertransformasi menjadi pengembang profesional di STMIK MARDIRA INDONESIA (Semester 5). Menguasai seni Full-Stack Development untuk menciptakan keajaiban digital.",
-                  align: "left",
-                  icon: <Sparkles size={20} />
-                }
-              ].map((step, idx) => (
-                <div key={idx} className={`flex items-center gap-8 ${step.align === 'left' ? 'md:flex-row-reverse' : ''} relative`}>
-                  {/* Content */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: step.align === 'right' ? 50 : -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 1, delay: idx * 0.2 }}
-                    className="w-full md:w-1/2 bg-slate-900/50 kaito-border p-8 relative group hover:bg-blue-600/5 transition-colors"
-                  >
-                    <div className="absolute top-0 right-0 p-4 text-white/5 font-serif italic text-6xl group-hover:text-blue-500/10 transition-colors">
-                      {step.year}
-                    </div>
-                    <div className="text-blue-500 mb-4">{step.icon}</div>
-                    <h3 className="text-2xl font-serif italic font-bold mb-4">{step.title}</h3>
-                    <p className="text-slate-400 font-light text-sm leading-relaxed">{step.desc}</p>
-                    
-                    {/* Glowing Marker (Mobile only shows at the side, desktop shows on the center line) */}
-                    <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.8)] hidden md:block ${step.align === 'right' ? '-left-[42px]' : '-right-[42px]'}`}></div>
-                  </motion.div>
-                  <div className="hidden md:block w-1/2"></div>
+          <div className="flex flex-wrap justify-center gap-6">
+            {[
+              {
+                title: "Belajar Dasar Pemrograman Web",
+                issuer: "Dicoding",
+                file: "/assets/sertifikat/sertifikat_course_123_3398153_250724195622.pdf"
+              },
+              {
+                title: "Belajar Membuat Front-End Web untuk Pemula",
+                issuer: "Dicoding",
+                file: "/assets/sertifikat/sertifikat_course_251_3398153_260824122855.pdf"
+              },
+              {
+                title: "Belajar Fundamental Front-End Web Development",
+                issuer: "Dicoding",
+                file: "/assets/sertifikat/sertifikat_course_256_3398153_081024203254.pdf"
+              },
+              {
+                title: "Belajar Fundamental Aplikasi Web dengan React",
+                issuer: "Dicoding",
+                file: "/assets/sertifikat/sertifikat_course_315_3398153_270924172326.pdf"
+              },
+              {
+                title: "Menjadi React Web Developer Expert",
+                issuer: "Dicoding",
+                file: "/assets/sertifikat/sertifikat_course_653_3398153_011024172900.pdf"
+              },
+              {
+                title: "Beyond the Basics: Full-Stack Developer 2024",
+                issuer: "IDCamp x Dicoding",
+                file: "/assets/sertifikat/idcamp-x-dicoding-live-1-beyond-the-basics-elevate-your-career-as-a-full-stack-developer-in-2024-certificate.pdf"
+              },
+              {
+                title: "Building Performance Web Applications",
+                issuer: "IDCamp x Dicoding",
+                file: "/assets/sertifikat/idcamp-x-dicoding-live-building-performance-web-applications-certificate.pdf"
+              },
+              {
+                title: "Machine Learning in Google Cloud: Tensorflow",
+                issuer: "DevCoach",
+                file: "/assets/sertifikat/devcoach-161-machine-learning-in-google-cloud-pengenalan-tensorflow-dan-ekosistemnya-certificate.pdf"
+              },
+              {
+                title: "Data Science: Mengolah Data Insightful",
+                issuer: "DevCoach",
+                file: "/assets/sertifikat/devcoach-167-data-science-aku-bisa-coders-mengolah-data-amburadul-jadi-lebih-insightful-certificate.pdf"
+              },
+              {
+                title: "DQLab Certification 1",
+                issuer: "DQLab",
+                file: "/assets/sertifikat/certificate-DQLABAI001VVKIHB.pdf"
+              },
+              {
+                title: "DQLab Certification 2",
+                issuer: "DQLab",
+                file: "/assets/sertifikat/certificate-DQLABAI003RWWPLS.pdf"
+              },
+              {
+                title: "Intro to Python for Data Science",
+                issuer: "DQLab",
+                file: "/assets/sertifikat/certificate-DQLABINTP1LIMMST.pdf"
+              },
+              {
+                title: "10th BEMSS Certificate of Attendance",
+                issuer: "BEMSS",
+                file: "/assets/sertifikat/Certificate of Attendance-10th BEMSS-Muhammad Jaja Maulana_2_2.pdf"
+              }
+            ].map((cert, idx) => (
+              <motion.a 
+                href={cert.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] p-6 kaito-border bg-slate-900/50 hover:bg-blue-600/10 transition-colors group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="text-blue-500 mb-4 group-hover:scale-110 transition-transform"><FileDown size={24} /></div>
+                  <h3 className="text-lg font-serif italic font-bold mb-2 group-hover:text-blue-400 transition-colors">{cert.title}</h3>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500 font-black">{cert.issuer}</p>
                 </div>
-              ))}
-            </div>
+                <div className="mt-6 flex items-center gap-2 text-xs font-bold text-white group-hover:text-blue-400 transition-colors uppercase tracking-[0.2em]">
+                  View Certificate <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </motion.a>
+            ))}
           </div>
         </div>
       </section>
@@ -897,8 +919,8 @@ const App = () => {
             className="flex flex-col md:flex-row md:items-end justify-between mb-20"
           >
             <div>
-              <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">The Heists</span>
-              <h2 className="text-5xl md:text-7xl font-serif italic font-bold tracking-tighter">Acquired <span className="kaito-gradient-text">Treasures</span></h2>
+              <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Portfolio</span>
+              <h2 className="text-5xl md:text-7xl font-serif italic font-bold tracking-tighter">Featured <span className="kaito-gradient-text">Projects</span></h2>
             </div>
             <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.2em] md:max-w-xs mt-6 md:mt-0">Koleksi karya terpilih di mana performa bertemu dengan elegan.</p>
           </motion.div>
@@ -966,7 +988,7 @@ const App = () => {
               >
                 <div className="h-48 sm:h-64 md:h-80 overflow-hidden relative border border-white/5 mb-8">
                   <img src={p.img} alt={p.title} loading="lazy" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-white text-black text-[10px] font-black uppercase tracking-widest translate-x-12 group-hover:translate-x-0 transition-transform duration-500">The Target</div>
+                  <div className="absolute top-4 right-4 px-3 py-1 bg-white text-black text-[10px] font-black uppercase tracking-widest translate-x-12 group-hover:translate-x-0 transition-transform duration-500">View Project</div>
                 </div>
                 <div className="px-4 pb-4">
                   <h3 className="text-3xl font-serif italic font-bold mb-4">{p.title}</h3>
@@ -988,7 +1010,7 @@ const App = () => {
                     {p.tags.map(t => <span key={t} className="text-[10px] font-bold text-slate-500 border-b border-white/10 pb-1">{t}</span>)}
                   </div>
                   <a href="#" className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-[0.2em] text-white hover:text-blue-400 transition-colors">
-                    View Dossier <ChevronRight size={14} />
+                    View Details <ChevronRight size={14} />
                   </a>
                 </div>
               </motion.div>
@@ -1007,8 +1029,8 @@ const App = () => {
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-24"
           >
-            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Secret Techniques</span>
-            <h2 className="text-5xl md:text-7xl font-serif italic font-bold">The <span className="kaito-gradient-text">Tricks</span></h2>
+            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Technical Skills</span>
+            <h2 className="text-5xl md:text-7xl font-serif italic font-bold">Tech <span className="kaito-gradient-text">Stack</span></h2>
           </motion.div>
           
           <motion.div 
@@ -1025,17 +1047,25 @@ const App = () => {
             className="flex flex-wrap justify-center gap-4"
           >
             {[
-              { icon: <Code2 size={24} />, label: "HTML" },
-              { icon: <Layers size={24} />, label: "CSS" },
-              { icon: <Terminal size={24} />, label: "JS" },
+              { icon: <Code2 size={24} />, label: "HTML5" },
+              { icon: <Layers size={24} />, label: "CSS3" },
+              { icon: <Terminal size={24} />, label: "JavaScript" },
+              { icon: <Code2 size={24} />, label: "TypeScript" },
               { icon: <Globe size={24} />, label: "PHP" },
               { icon: <Zap size={24} />, label: "Laravel" },
-              { icon: <Sparkles size={24} />, label: "React" },
+              { icon: <Sparkles size={24} />, label: "React.js" },
+              { icon: <Layout size={24} />, label: "Next.js" },
+              { icon: <Server size={24} />, label: "Node.js" },
+              { icon: <Server size={24} />, label: "Express" },
               { icon: <Database size={24} />, label: "MySQL" },
               { icon: <Database size={24} />, label: "PostgreSQL" },
+              { icon: <Database size={24} />, label: "MongoDB" },
               { icon: <Layers size={24} />, label: "Bootstrap" },
-              { icon: <Zap size={24} />, label: "Tailwind" },
-              { icon: <Coffee size={24} />, label: "Java" }
+              { icon: <Zap size={24} />, label: "Tailwind CSS" },
+              { icon: <Github size={24} />, label: "Git & GitHub" },
+              { icon: <Container size={24} />, label: "Docker" },
+              { icon: <Coffee size={24} />, label: "Java" },
+              { icon: <Box size={24} />, label: "REST APIs" }
             ].map((s, i) => (
               <motion.div 
                 key={i}
@@ -1069,27 +1099,27 @@ const App = () => {
             transition={{ duration: 1.2 }}
             className="text-right mb-24"
           >
-            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Service Request</span>
-            <h2 className="text-5xl md:text-7xl font-serif italic font-bold">Planned <span className="kaito-gradient-text">Contracts</span></h2>
+            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Available Services</span>
+            <h2 className="text-5xl md:text-7xl font-serif italic font-bold">What I <span className="kaito-gradient-text">Offer</span></h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Landing Page Heist",
-                desc: "Halaman pendarat berkonversi tinggi dengan desain yang memikat perhatian dalam hitungan detik.",
+                title: "Landing Page Development",
+                desc: "Halaman pendarat berkonversi tinggi dengan desain yang modern dan profesional.",
                 icon: <Monitor size={32} />,
                 features: ["Responsive Design", "Fast Loading", "SEO Optimized"]
               },
               {
-                title: "Web App Infiltration",
+                title: "Web App Development",
                 desc: "Aplikasi web kustom yang dibangun dengan presisi untuk kebutuhan bisnis yang kompleks.",
                 icon: <Cpu size={32} />,
                 features: ["React/Laravel", "Scalable Architecture", "Secure Auth"]
               },
               {
-                title: "E-Commerce Raid",
-                desc: "Toko online modern yang menawarkan pengalaman berbelanja semulus keajaiban sulap.",
+                title: "E-Commerce Solutions",
+                desc: "Toko online modern yang menawarkan pengalaman berbelanja semulus mungkin.",
                 icon: <Pocket size={32} />,
                 features: ["Payment Gateway", "Inventory System", "User Dashboard"]
               }
@@ -1122,7 +1152,7 @@ const App = () => {
                   rel="noopener noreferrer"
                   className="mt-4 flex items-center justify-center gap-2 border border-blue-500/30 bg-blue-500/5 hover:bg-blue-600 text-blue-400 hover:text-white text-[10px] font-black uppercase tracking-widest py-3 rounded-[2px] transition-all group/wa"
                 >
-                  <MessageCircle size={14} className="group-hover/wa:rotate-12 transition-transform" /> Send Call Card
+                  <MessageCircle size={14} className="group-hover/wa:rotate-12 transition-transform" /> Send Message
                 </a>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 -rotate-45 translate-x-16 -translate-y-16 group-hover:translate-x-12 group-hover:-translate-y-12 transition-transform duration-700"></div>
               </motion.div>
@@ -1141,8 +1171,8 @@ const App = () => {
             transition={{ duration: 1.2 }}
             className="mb-20"
           >
-            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block text-center">Interrogation Room</span>
-            <h2 className="text-5xl md:text-7xl font-serif italic font-bold text-center tracking-tighter">Witness <span className="kaito-gradient-text">Testimonies</span></h2>
+            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-6 block text-center">Testimonials</span>
+            <h2 className="text-5xl md:text-7xl font-serif italic font-bold text-center tracking-tighter">Client <span className="kaito-gradient-text">Feedback</span></h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -1151,19 +1181,19 @@ const App = () => {
                 name: "H. Ahmad Sulaeman, S.IP.", 
                 role: "Kepala Desa Sukanagara", 
                 text: "Pelayanan digital yang dibangun Muhammad Jaja Maulana sangat membantu efisiensi birokrasi di desa kami. Benar-benar sebuah terobosan.",
-                type: "Official Report"
+                type: "Client Review"
               },
               { 
                 name: "Drs. M. Taufik Hidayat, M.Si.", 
                 role: "Kepala Sekolah SMA ERHA", 
                 text: "Dedikasi dan keahliannya dalam membangun sistem PPDB sekolah kami sangat luar biasa. Hasilnya sangat rapi dan profesional.",
-                type: "Incident Log"
+                type: "Academic Feedback"
               },
               { 
                 name: "Adam Rifa", 
                 role: "Mahasiswa Universitas Galuh Ciamis", 
                 text: "Kreativitasnya dalam coding selalu menginspirasi. Dia selalu punya cara 'ajaib' untuk menyelesaikan masalah teknis yang sulit.",
-                type: "Analysis Result"
+                type: "Peer Review"
               }
             ].map((witness, idx) => (
               <motion.div 
@@ -1211,10 +1241,10 @@ const App = () => {
           >
             <div className="grid lg:grid-cols-2 gap-24 relative z-10">
               <div>
-                <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8 block">Inquiry</span>
-                <h4 className="text-4xl font-serif italic font-bold mb-10 leading-tight">Leave a <span className="kaito-gradient-text">Call Card</span>.</h4>
+                <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8 block">Get in Touch</span>
+                <h4 className="text-4xl font-serif italic font-bold mb-10 leading-tight">Let's Work <span className="kaito-gradient-text">Together</span>.</h4>
                 <p className="text-slate-400 text-lg leading-relaxed mb-12 font-light">
-                  Saya saat ini menerima proyek baru dan tawaran kolaborasi. Tinggalkan pesan, dan saya akan muncul pada waktu yang telah ditentukan.
+                  Saya saat ini menerima proyek baru dan tawaran kolaborasi. Tinggalkan pesan, dan saya akan segera membalasnya.
                 </p>
                 <div className="flex gap-6">
                   {socialLinks.map((social, i) => (
@@ -1241,7 +1271,7 @@ const App = () => {
             </div>
             {/* Background Accent */}
             <div className="absolute top-0 right-0 p-12 text-white/5 opacity-20 pointer-events-none italic font-serif text-9xl">
-               MAGIC
+               HELLO
             </div>
           </motion.div>
         </div>
@@ -1249,7 +1279,7 @@ const App = () => {
 
       <footer className="py-20 text-center border-t border-white/5">
         <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-600 mb-4">&copy; 2025 Muhammad Jaja Maulana. All rights reserved.</p>
-        <p className="text-[10px] italic font-serif text-slate-700">Under the pale moonlight.</p>
+        <p className="text-[10px] italic font-serif text-slate-700">Crafted with passion and precision.</p>
       </footer>
 
       {/* CV Modal Overlay */}
